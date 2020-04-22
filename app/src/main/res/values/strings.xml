@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">weather</string>
+
+    <string name="textView2" translatable="false">City</string>
+
+    <string name="image1" translatable="false">image1</string>
+    <string name="image2" translatable="false">image2</string>
+
+    <string name="image3" translatable="false">image3</string>
+    <string name="speed" translatable="false">m/s</string>
+    <string name="c">\u2109</string>
+    <string name="cityNname">City</string>
+    <string name="switch1">Wind speed</string>
+    <string name="switch2">Pressure</string>
+
+    <string name="CRD">Krasnodar</string>
+    <string name="MSK">Moskow</string>
+    <string name="SPB">Saint Petersburg</string>
+    <string name="setBut">Settings</string>
+    <string name="setting">setting</string>
+    <string name="back">back</string>
+    <string name="brov">browser</string>
+
+
+
+</resources>

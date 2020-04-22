@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">погода</string>
+
+
+    <string name="textView2" translatable="false">Город</string>
+    <string name="speed" translatable="false">м/с</string>
+    <string name="c">\u2103</string>
+    <string name="cityNname">Город</string>
+    <string name="switch1">Скорость ветра</string>
+    <string name="switch2">Давление</string>
+
+    <string name="CRD">Краснодар</string>
+    <string name="MSK">Москва</string>
+    <string name="SPB">Санкт-Петербург</string>
+    <string name="setBut">Настройки</string>
+    <string name="setting">настройки</string>
+    <string name="back">назад</string>
+    <string name="brov">браузер</string>
+</resources>
