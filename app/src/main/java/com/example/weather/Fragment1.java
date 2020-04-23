@@ -20,6 +20,7 @@ public class Fragment1 extends Fragment {
     Fragment2 fragment2;
     TextView textPressure;
     TextView textSpeed;
+    TextView textCity;
     Button btnGo;
 
     public Fragment1() {
@@ -39,6 +40,9 @@ public class Fragment1 extends Fragment {
         textSpeed = view.findViewById(R.id.textView9);
         btn2 = view.findViewById(R.id.button2);
         btnGo = view.findViewById(R.id.buttonGo);
+        textCity = view.findViewById(R.id.textView2);
+
+        textCity.setText(MainActivity.getSity());
 
 
         viewTextPresSpeed();

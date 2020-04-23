@@ -3,6 +3,7 @@ package com.example.weather;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,16 @@ public class Fragment2 extends Fragment {
         btn4 = view.findViewById(R.id.button4);
         s2Press = view.findViewById(R.id.switch2);
         s3Speed = view.findViewById(R.id.switch3);
+        TextView textCity = view.findViewById(R.id.textView6);
+
+        String msk = (String) getText(R.string.MSK);
+        String spb = (String) getText(R.string.SPB);
+        String krd = (String) getText(R.string.CRD);
+        final String[] data = {msk, spb, krd};
+
+        spinerMethod(textCity, data);
+
+
 
         if(MainActivity.isSwitchPress()) s2Press.setChecked(true);
         else s2Press.setChecked(false);
@@ -50,7 +61,6 @@ public class Fragment2 extends Fragment {
                 ft.replace(R.id.fragment_container, fragment1);
                 //ft.addToBackStack("");
                 ft.commit();
-
             }
         });
 
@@ -72,6 +82,43 @@ public class Fragment2 extends Fragment {
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+    private void spinerMethod(final TextView t6, final String[] data) {
+        //адаптер----------------------------------------------------
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, data);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner spinner = (Spinner) view.findViewById(R.id.spiner);
+        spinner.setAdapter(adapter);
+        // заголовок--------------------------------------------------
+        spinner.setPrompt("Title");
+        // выделяем элемент ------------------------------
+        spinner.setSelection(MainActivity.getPosition());
+        // устанавливаем обработчик нажатия---------------------------
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // показываем позиция нажатого элемента
+                switch (position){
+                    case 0: t6.setText(data[position]);
+                        break;
+
+                    case 1: t6.setText(data[position]);
+                        break;
+
+                    case 2: t6.setText(data[position]);
+                        break;
+                }
+                MainActivity.setSity(t6.getText().toString());
+                MainActivity.setPosition(position);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
     }
 
 

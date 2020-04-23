@@ -9,7 +9,7 @@
     <string name="image3" translatable="false">image3</string>
     <string name="speed" translatable="false">m/s</string>
     <string name="c">\u2109</string>
-    <string name="cityNname">City</string>
+    <string name="cityNname">Krasnodar</string>
     <string name="switch1">Wind speed</string>
     <string name="switch2">Pressure</string>
 
@@ -20,6 +20,13 @@
     <string name="setting">setting</string>
     <string name="back">back</string>
     <string name="brov">browser</string>
+
+
+    <string-array name="arrayCity">
+        <item>Krasnodar</item>
+        <item>Moskau</item>
+        <item>Saint Petersburg</item>
+    </string-array>
 
 
 

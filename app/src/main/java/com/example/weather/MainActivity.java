@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     Fragment2 fragment2;
     private static boolean switchPress = false;
     private static boolean switchSpeed = false;
+    private static   String sity = "Москва";
+    private static int position = 0;
 
 
 
@@ -51,5 +53,24 @@ public class MainActivity extends AppCompatActivity {
         return switchPress;
     }
 
+    public static void setPosition(int position) {
+        MainActivity.position = position;
+    }
+
+    public static int getPosition() {
+        return position;
+    }
+
+    public static void setSity(String sity) {
+        MainActivity.sity = sity;
+    }
+
+    public static String getSity() {
+        return sity;
+    }
 
 }
+
+
+
+

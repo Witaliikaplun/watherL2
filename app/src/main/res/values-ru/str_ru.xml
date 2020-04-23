@@ -6,7 +6,7 @@
     <string name="textView2" translatable="false">Город</string>
     <string name="speed" translatable="false">м/с</string>
     <string name="c">\u2103</string>
-    <string name="cityNname">Город</string>
+    <string name="cityNname">Краснодар</string>
     <string name="switch1">Скорость ветра</string>
     <string name="switch2">Давление</string>
 
@@ -17,4 +17,10 @@
     <string name="setting">настройки</string>
     <string name="back">назад</string>
     <string name="brov">браузер</string>
+
+    <string-array name="arrayCity">
+        <item>Краснодар</item>
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+    </string-array>
 </resources>
