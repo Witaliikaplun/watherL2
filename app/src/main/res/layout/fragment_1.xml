@@ -159,15 +159,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
 
             <Button
                 android:id="@+id/buttonGo"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/brov" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:layout_gravity="center"
+                android:text="@string/setBut"
+                android:textColor="#1E1C1C" />
         </LinearLayout>
 
     </LinearLayout>
@@ -177,30 +187,6 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteY="420dp">
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="DARK"
-            android:textColor="#1E1C1C"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-
-            android:layout_marginEnd="276dp"
-            android:text="@string/setBut"
-            android:textColor="#1E1C1C"
-            app:layout_constraintBottom_toBottomOf="@+id/button1"
-            app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

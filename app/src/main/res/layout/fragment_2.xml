@@ -55,6 +55,7 @@
             android:id="@+id/spiner"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+
             android:textSize="100dp">
 
         </Spinner>
@@ -80,19 +81,6 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="DARK"
-                android:textColor="#1E1C1C"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <Button
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,8 +89,8 @@
                 android:layout_marginEnd="296dp"
                 android:text="@string/back"
                 android:textColor="#1E1C1C"
-                app:layout_constraintBottom_toBottomOf="@+id/button3"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteY="381dp" />
 
         </android.support.constraint.ConstraintLayout>
 

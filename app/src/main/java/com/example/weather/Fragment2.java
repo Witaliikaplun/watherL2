@@ -3,6 +3,7 @@ package com.example.weather;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import android.widget.TextView;
  */
 public class Fragment2 extends Fragment {
     Button btn4;
+    Button btnDark;
     Fragment1 fragment1;
     View view;
     Switch s2Press;
@@ -35,18 +37,18 @@ public class Fragment2 extends Fragment {
         fragment1 = new Fragment1();
         view = inflater.inflate(R.layout.fragment_2, null);
         btn4 = view.findViewById(R.id.button4);
+
         s2Press = view.findViewById(R.id.switch2);
         s3Speed = view.findViewById(R.id.switch3);
         TextView textCity = view.findViewById(R.id.textView6);
 
-        String msk = (String) getText(R.string.MSK);
-        String spb = (String) getText(R.string.SPB);
-        String krd = (String) getText(R.string.CRD);
-        final String[] data = {msk, spb, krd};
+//        String msk = (String) getText(R.string.MSK);
+//        String spb = (String) getText(R.string.SPB);
+//        String krd = (String) getText(R.string.CRD);
+//        final String[] data = {msk, spb, krd};
 
+        String[] data = getResources().getStringArray(R.array.arrayCity);
         spinerMethod(textCity, data);
-
-
 
         if(MainActivity.isSwitchPress()) s2Press.setChecked(true);
         else s2Press.setChecked(false);

@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment2 fragment2;
     private static boolean switchPress = false;
     private static boolean switchSpeed = false;
-    private static   String sity = "Москва";
+    private static String sity = "Москва";
     private static int position = 0;
 
 
