@@ -4,18 +4,25 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
-    Fragment2 fragment2;
+    private Fragment2 fragment2;
     private static boolean switchPress = false;
     private static boolean switchSpeed = false;
     private static String sity = "Москва";
     private static int position = 0;
+
+    RecyclerView recyclerView;
 
 
 
@@ -27,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
 
         fragment2 = new Fragment2();
         startMainFragment();
+
+
+
+
+
+
     }
 
     private void startMainFragment() {

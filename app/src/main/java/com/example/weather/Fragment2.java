@@ -20,12 +20,13 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment2 extends Fragment {
-    Button btn4;
-    Button btnDark;
-    Fragment1 fragment1;
-    View view;
-    Switch s2Press;
-    Switch s3Speed;
+    private Button btn4;
+    private Button btnDark;
+    private Fragment1 fragment1;
+    private View view;
+    private Switch s2Press;
+    private Switch s3Speed;
+
     public Fragment2() {
         // Required empty public constructor
     }
