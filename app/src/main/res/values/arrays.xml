@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="items">
-        <item>odin</item>
-        <item>dva</item>
-        <item>tri</item>
-        <item>odin</item>
-        <item>dva</item>
-        <item>tri</item>
-        <item>odin</item>
-        <item>dva</item>
-        <item>tri</item>
+        <item>+25</item>
+        <item>+15</item>
+        <item>+20</item>
+        <item>+28</item>
+        <item>+18</item>
+        <item>+22</item>
+        <item>+26</item>
+        <item>+18</item>
+        <item>+21</item>
     </string-array>
 
     <array name="pictures">

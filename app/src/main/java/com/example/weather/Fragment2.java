@@ -43,11 +43,6 @@ public class Fragment2 extends Fragment {
         s3Speed = view.findViewById(R.id.switch3);
         TextView textCity = view.findViewById(R.id.textView6);
 
-//        String msk = (String) getText(R.string.MSK);
-//        String spb = (String) getText(R.string.SPB);
-//        String krd = (String) getText(R.string.CRD);
-//        final String[] data = {msk, spb, krd};
-
         String[] data = getResources().getStringArray(R.array.arrayCity);
         spinerMethod(textCity, data);
 

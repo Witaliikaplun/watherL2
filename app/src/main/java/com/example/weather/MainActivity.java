@@ -22,24 +22,12 @@ public class MainActivity extends AppCompatActivity {
     private static String sity = "Москва";
     private static int position = 0;
 
-    RecyclerView recyclerView;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         fragment2 = new Fragment2();
         startMainFragment();
-
-
-
-
-
-
     }
 
     private void startMainFragment() {

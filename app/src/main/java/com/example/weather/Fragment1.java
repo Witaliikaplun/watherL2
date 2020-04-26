@@ -80,7 +80,7 @@ public class Fragment1 extends Fragment {
         recyclerView.setAdapter(weatherAdapter);
 
        //декоратор-------------
-        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(), LinearLayoutManager.HORIZONTAL);
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL);
         itemDecoration.setDrawable(getActivity().getDrawable(R.drawable.separator));
         recyclerView.addItemDecoration(itemDecoration);
         //----------------------
