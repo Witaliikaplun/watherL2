@@ -20,12 +20,13 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment2 extends Fragment {
-    Button btn4;
-    Button btnDark;
-    Fragment1 fragment1;
-    View view;
-    Switch s2Press;
-    Switch s3Speed;
+    private Button btn4;
+    private Button btnDark;
+    private Fragment1 fragment1;
+    private View view;
+    private Switch s2Press;
+    private Switch s3Speed;
+
     public Fragment2() {
         // Required empty public constructor
     }
@@ -41,11 +42,6 @@ public class Fragment2 extends Fragment {
         s2Press = view.findViewById(R.id.switch2);
         s3Speed = view.findViewById(R.id.switch3);
         TextView textCity = view.findViewById(R.id.textView6);
-
-//        String msk = (String) getText(R.string.MSK);
-//        String spb = (String) getText(R.string.SPB);
-//        String krd = (String) getText(R.string.CRD);
-//        final String[] data = {msk, spb, krd};
 
         String[] data = getResources().getStringArray(R.array.arrayCity);
         spinerMethod(textCity, data);

@@ -5,23 +5,29 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Fragment1 extends Fragment {
-    Button btn2;
-    Fragment2 fragment2;
-    TextView textPressure;
-    TextView textSpeed;
-    TextView textCity;
-    Button btnGo;
+    private Button btn2;
+    private Fragment2 fragment2;
+    private TextView textPressure;
+    private TextView textSpeed;
+    private TextView textCity;
+    private Button btnGo;
+    RecyclerView recyclerView;
 
     public Fragment1() {
         // Required empty public constructor
@@ -31,8 +37,6 @@ public class Fragment1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
 
         fragment2 = new Fragment2();
         View view = inflater.inflate(R.layout.fragment_1, null);
@@ -43,7 +47,6 @@ public class Fragment1 extends Fragment {
         textCity = view.findViewById(R.id.textView2);
 
         textCity.setText(MainActivity.getSity());
-
 
         viewTextPresSpeed();
         btn2.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +69,21 @@ public class Fragment1 extends Fragment {
             }
         });
 
+        recyclerView = (RecyclerView)view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
+
+        WeatherSource ws = new WeatherSource(getResources());
+        ArrayList weather = ws.build().getListWeather();
+
+        WeatherAdapter weatherAdapter = new WeatherAdapter(weather);
+
+        recyclerView.setAdapter(weatherAdapter);
+
+       //декоратор-------------
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL);
+        itemDecoration.setDrawable(getActivity().getDrawable(R.drawable.separator));
+        recyclerView.addItemDecoration(itemDecoration);
+        //----------------------
         return view;
     }
 
