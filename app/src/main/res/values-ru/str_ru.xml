@@ -18,6 +18,11 @@
     <string name="back">назад</string>
     <string name="brov">браузер</string>
 
+    <string name="loginName">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="ok">Ок</string>
+    <string name="Cancel">Отмена</string>
+
     <string-array name="arrayCity">
         <item>Краснодар</item>
         <item>Москва</item>

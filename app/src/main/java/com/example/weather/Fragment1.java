@@ -3,11 +3,11 @@ package com.example.weather;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +40,7 @@ public class Fragment1 extends Fragment {
 
         fragment2 = new Fragment2();
         View view = inflater.inflate(R.layout.fragment_1, null);
+getView();
         textPressure = view.findViewById(R.id.textView10);
         textSpeed = view.findViewById(R.id.textView9);
         btn2 = view.findViewById(R.id.button2);
@@ -86,6 +87,8 @@ public class Fragment1 extends Fragment {
         //----------------------
         return view;
     }
+
+
 
     private void viewTextPresSpeed() {
         if(MainActivity.isSwitchPress()) textPressure.setVisibility(View.VISIBLE);

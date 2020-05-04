@@ -1,19 +1,8 @@
 package com.example.weather;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private Fragment2 fragment2;
@@ -27,13 +16,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fragment2 = new Fragment2();
-        startMainFragment();
+        //startMainFragment();
+        startLoginFragment();
+
     }
 
     private void startMainFragment() {
         Fragment1 fragment1 = new Fragment1();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.fragment_container, fragment1);
+        fragmentTransaction.addToBackStack("");
+        fragmentTransaction.commit();
+    }
+
+    private void startLoginFragment() {
+        FragmentLogin fragmentLogin = new FragmentLogin();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.fragment_container, fragmentLogin);
         fragmentTransaction.addToBackStack("");
         fragmentTransaction.commit();
     }

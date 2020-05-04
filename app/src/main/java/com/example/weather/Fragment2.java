@@ -1,10 +1,10 @@
 package com.example.weather;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatDelegate;
-import android.util.Log;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatDelegate;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
