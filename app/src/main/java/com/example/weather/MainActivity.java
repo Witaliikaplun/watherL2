@@ -8,15 +8,21 @@ public class MainActivity extends AppCompatActivity {
     private Fragment2 fragment2;
     private static boolean switchPress = false;
     private static boolean switchSpeed = false;
+    private static boolean switchTheme = false;
     private static String sity = "Москва";
     private static int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(switchTheme)setTheme(R.style.AppDarkTheme);
+        else setTheme(R.style.AppTheme);
+
         setContentView(R.layout.activity_main);
         fragment2 = new Fragment2();
         //startMainFragment();
+        if(savedInstanceState == null)
         startLoginFragment();
 
     }
@@ -69,6 +75,13 @@ public class MainActivity extends AppCompatActivity {
         return sity;
     }
 
+    public static void setSwitchTheme(boolean switchTheme) {
+        MainActivity.switchTheme = switchTheme;
+    }
+
+    public static boolean isSwitchTheme() {
+        return switchTheme;
+    }
 }
 
 

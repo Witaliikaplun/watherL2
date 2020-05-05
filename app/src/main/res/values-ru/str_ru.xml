@@ -22,6 +22,14 @@
     <string name="password">Пароль</string>
     <string name="ok">Ок</string>
     <string name="Cancel">Отмена</string>
+    <string name="switch3">Переключить тему</string>
+    <string name="textchengPress">Показать давление?</string>
+    <string name="textchengPress_2">Убрать давление?</string>
+    <string name="show_button">Показать</string>
+    <string name="remove_but">Убрать</string>
+    <string name="rem_speed">Убрать скорость ветра?</string>
+    <string name="show_speed">Показать скорость ветра?</string>
+    <string name="rem_pres">Убрать</string>
 
     <string-array name="arrayCity">
         <item>Краснодар</item>

@@ -6,6 +6,18 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+    <style name= "AppDarkTheme" parent= "Theme.MaterialComponents" />
+
+    <style name="imageStyle1">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:contentDescription">imagge</item>
+        <item name="android:alpha">1.0</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:visibility">visible</item>
     </style>
 
 </resources>
