@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scree2"
@@ -9,19 +9,13 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-
-        android:alpha="1.0"
-        android:contentDescription="imagge"
-        android:scaleType="center"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/s12002"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        style="@style/imageStyle1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -76,11 +70,19 @@
             android:text="@string/switch1"
             android:textSize="25sp" />
 
-        <android.support.constraint.ConstraintLayout
+        <Switch
+            android:id="@+id/switchTheme"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:text="@string/switch3"
+            android:textSize="25sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,13 +91,13 @@
                 android:layout_marginEnd="296dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/back"
-                android:textColor="#1E1C1C"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

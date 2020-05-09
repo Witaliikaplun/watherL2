@@ -28,6 +28,20 @@
         <item>Saint Petersburg</item>
     </string-array>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="loginName">Login</string>
+    <string name="password">Password</string>
+    <string name="ok">Ok</string>
+    <string name="Cancel">cancel</string>
+    <string name="switch3">Switch theme</string>
+    <string name="textchengPress">show the pressure?</string>
+    <string name="textchengPress_2">remove the pressure?</string>
+    <string name="show_button">Show</string>
+    <string name="remove_but">Remove</string>
+    <string name="rem_speed">remove the speed?</string>
+    <string name="show_speed">show the speed?</string>
+    <string name="rem_pres">Remove</string>
 
 
 </resources>

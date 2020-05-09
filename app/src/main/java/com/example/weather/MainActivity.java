@@ -1,39 +1,44 @@
 package com.example.weather;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private Fragment2 fragment2;
     private static boolean switchPress = false;
     private static boolean switchSpeed = false;
+    private static boolean switchTheme = false;
     private static String sity = "Москва";
     private static int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(switchTheme)setTheme(R.style.AppDarkTheme);
+        else setTheme(R.style.AppTheme);
+
         setContentView(R.layout.activity_main);
         fragment2 = new Fragment2();
-        startMainFragment();
+        //startMainFragment();
+        if(savedInstanceState == null)
+        startLoginFragment();
+
     }
 
     private void startMainFragment() {
         Fragment1 fragment1 = new Fragment1();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.fragment_container, fragment1);
+        fragmentTransaction.addToBackStack("");
+        fragmentTransaction.commit();
+    }
+
+    private void startLoginFragment() {
+        FragmentLogin fragmentLogin = new FragmentLogin();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.fragment_container, fragmentLogin);
         fragmentTransaction.addToBackStack("");
         fragmentTransaction.commit();
     }
@@ -70,6 +75,13 @@ public class MainActivity extends AppCompatActivity {
         return sity;
     }
 
+    public static void setSwitchTheme(boolean switchTheme) {
+        MainActivity.switchTheme = switchTheme;
+    }
+
+    public static boolean isSwitchTheme() {
+        return switchTheme;
+    }
 }
 
 
