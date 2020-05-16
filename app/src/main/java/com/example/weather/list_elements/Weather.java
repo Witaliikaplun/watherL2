@@ -1,4 +1,4 @@
-package com.example.weather;
+package com.example.weather.list_elements;
 
 public class Weather {
     private int img;

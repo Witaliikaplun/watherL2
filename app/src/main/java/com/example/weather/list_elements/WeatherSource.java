@@ -1,7 +1,9 @@
-package com.example.weather;
+package com.example.weather.list_elements;
 
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+
+import com.example.weather.R;
 
 import java.util.ArrayList;
 

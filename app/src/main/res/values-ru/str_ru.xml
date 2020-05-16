@@ -7,8 +7,9 @@
     <string name="speed" translatable="false">м/с</string>
     <string name="c">\u2103</string>
     <string name="cityNname">Краснодар</string>
-    <string name="switch1">Скорость ветра</string>
-    <string name="switch2">Давление</string>
+    <string name="switchtextSpeed">Скорость ветра</string>
+    <string name="switchtextPress">Давление</string>
+    <string name="switchtextHumi">Влажность</string>
 
     <string name="CRD">Краснодар</string>
     <string name="MSK">Москва</string>
@@ -25,6 +26,8 @@
     <string name="switch3">Переключить тему</string>
     <string name="textchengPress">Показать давление?</string>
     <string name="textchengPress_2">Убрать давление?</string>
+    <string name="textshowHumi">Показать влажность?</string>
+    <string name="textremiveHumi">Убрать влажность?</string>
     <string name="show_button">Показать</string>
     <string name="remove_but">Убрать</string>
     <string name="rem_speed">Убрать скорость ветра?</string>

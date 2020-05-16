@@ -19,20 +19,13 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class Request {
 
-
-
-
-
-
     private static final String TAG = "WEATHER_MY";
-
     private String city;
     private String temperature;
     private String pressure;
     private String humidity;
     private String windSpeed;
-
-
+    private  String description;
         public void init() {
             try {
 
@@ -51,11 +44,15 @@ public class Request {
                             String result = getLines(in);
                             Gson gson = new Gson();
                             final WeatherRequest weatherRequest = gson.fromJson(result, WeatherRequest.class);
-                            city = (weatherRequest.getName());
-                            temperature = String.format("%.1f", weatherRequest.getMain().getTemp());
-                            pressure = String.format("%d", weatherRequest.getMain().getPressure());
-                            humidity = String.format("%d", weatherRequest.getMain().getHumidity());
-                            windSpeed = String.format("%d", weatherRequest.getWind().getSpeed());
+
+                            // Возвращаемся к основному потоку
+                            handler.post( new Runnable() {
+                                @Override
+                                public void run() {
+                                    displayWeather(weatherRequest);
+                                }
+                            });
+
 
                         } catch (Exception e) {
                             Log.e(TAG, "Fail Connection", e);
@@ -74,7 +71,17 @@ public class Request {
             }
         }
 
-        public String request(int num) {
+    private void displayWeather(WeatherRequest weatherRequest) {
+        city = (weatherRequest.getName());
+        temperature = String.format("%.1f", weatherRequest.getMain().getTemp());
+        pressure = String.format("%d", weatherRequest.getMain().getPressure());
+        humidity = String.format("%d", weatherRequest.getMain().getHumidity());
+        windSpeed = String.format("%d", weatherRequest.getWind().getSpeed());
+        description = String.format("%s", weatherRequest.getWeather()[0].getDescription());
+
+    }
+
+    public String request(int num) {
             String reqest = "";
             switch (num) {
                 case 0:
@@ -97,6 +104,14 @@ public class Request {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getTemperature() {

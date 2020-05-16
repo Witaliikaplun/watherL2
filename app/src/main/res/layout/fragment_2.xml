@@ -55,20 +55,30 @@
         </Spinner>
 
         <Switch
-            android:id="@+id/switch2"
+            android:id="@+id/switchSpeed"
             android:layout_width="300dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:text="@string/switch2"
+            android:text="@string/switchtextSpeed"
             android:textSize="25sp" />
 
         <Switch
-            android:id="@+id/switch3"
+            android:id="@+id/switchHumi"
             android:layout_width="300dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:text="@string/switch1"
+            android:text="@string/switchtextHumi"
             android:textSize="25sp" />
+
+        <Switch
+            android:id="@+id/switchPress"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:text="@string/switchtextPress"
+            android:textSize="25sp" />
+
+
 
         <Switch
             android:id="@+id/switchTheme"

@@ -1,5 +1,7 @@
 package com.example.weather.data;
 
+import com.example.weather.list_elements.Weather;
+
 public class WeatherRequest {
     private Coord coord;
     private Weather[] weather;

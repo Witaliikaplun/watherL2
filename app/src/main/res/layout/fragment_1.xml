@@ -34,8 +34,16 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
+            android:addStatesFromChildren="false">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
             android:addStatesFromChildren="false"
             android:orientation="horizontal">
 
@@ -68,13 +76,17 @@
                 android:layout_marginLeft="10dp"/>
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_marginLeft="20dp">
+
                 <LinearLayout
+                    android:id="@+id/layautSpeed"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    tools:visibility="gone">
 
                     <ImageView
                         android:id="@+id/imageWind"
@@ -82,35 +94,19 @@
                         android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/image2"
-                        app:srcCompat="@drawable/wind" />
+                        app:srcCompat="@drawable/wind"/>
 
                     <TextView
+                        android:id="@+id/textUnitSpeed"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="WWW"/>
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layautHumi"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/imagePres"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/image2"
-                        app:srcCompat="@drawable/hygro" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="WWW"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/imageHumi"
@@ -118,17 +114,49 @@
                         android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/image2"
+                        app:srcCompat="@drawable/hygro" />
+
+                    <TextView
+                        android:id="@+id/textUnitHumi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layautPress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/imagePres"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/image2"
                         app:srcCompat="@drawable/press" />
 
                     <TextView
+                        android:id="@+id/textUnitPress"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="WWW"/>
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/textDescript"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/textView2"
@@ -156,51 +184,7 @@
                 tools:layout_editor_absoluteY="0dp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="@string/switch2"
-                android:textSize="30dp"
-                android:visibility="invisible" />
-
-            <TextView
-                android:id="@+id/presValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="30dp"
-                android:visibility="invisible" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="@string/switch1"
-                android:textSize="30dp"
-                android:visibility="invisible" />
-
-            <TextView
-                android:id="@+id/speedValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="30dp"
-                android:visibility="invisible" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

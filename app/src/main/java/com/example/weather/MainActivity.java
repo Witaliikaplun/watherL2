@@ -6,13 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.weather.data.Request;
-
-import static com.example.weather.Singleton.getSingleton;
+import com.example.weather.fragments.Fragment1;
+import com.example.weather.fragments.Fragment2;
 
 public class MainActivity extends AppCompatActivity {
     private Fragment2 fragment2;
-    //private static boolean switchPress = false;
-    private static boolean switchSpeed = false;
+
     private static boolean switchTheme = false;
     private static String sity = "Москва";
     private static int position = 0;
@@ -33,10 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         fragment2 = new Fragment2();
-        //startMainFragment();
-        if(savedInstanceState == null){
-            startLoginFragment();
-        }
+        startMainFragment();
+
         req = new Request();
     }
 
@@ -48,29 +45,13 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    private void startLoginFragment() {
-        FragmentLogin fragmentLogin = new FragmentLogin();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, fragmentLogin);
-        fragmentTransaction.addToBackStack("");
-        fragmentTransaction.commit();
-    }
 
-    public static void setSwitchSpeed(boolean switchSpeed) {
-        MainActivity.switchSpeed = switchSpeed;
-    }
 
-    public static boolean isSwitchSpeed() {
-        return switchSpeed;
-    }
 
-//    public static void setSwitchPress(boolean switchPress) {
-//        MainActivity.switchPress = switchPress;
-//    }
-//
-//    public static boolean isSwitchPress() {
-//        return switchPress;
-//    }
+
+
+
+
 
     public static void setPosition(int position) {
         MainActivity.position = position;

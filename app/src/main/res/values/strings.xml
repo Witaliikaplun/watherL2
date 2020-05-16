@@ -10,8 +10,9 @@
     <string name="speed" translatable="false">m/s</string>
     <string name="c">\u2109</string>
     <string name="cityNname">Krasnodar</string>
-    <string name="switch1">Wind speed</string>
-    <string name="switch2">Pressure</string>
+    <string name="switchtextSpeed">Wind speed</string>
+    <string name="switchtextPress">Pressure</string>
+    <string name="switchtextHumi">Humidity</string>
 
     <string name="CRD">Krasnodar</string>
     <string name="MSK">Moskow</string>
@@ -37,11 +38,16 @@
     <string name="switch3">Switch theme</string>
     <string name="textchengPress">show the pressure?</string>
     <string name="textchengPress_2">remove the pressure?</string>
+    <string name="textshowHumi">show the humidity?</string>
+    <string name="textremiveHumi">remove the humidity?</string>
+
     <string name="show_button">Show</string>
     <string name="remove_but">Remove</string>
+
     <string name="rem_speed">remove the speed?</string>
     <string name="show_speed">show the speed?</string>
     <string name="rem_pres">Remove</string>
+
 
 
 </resources>

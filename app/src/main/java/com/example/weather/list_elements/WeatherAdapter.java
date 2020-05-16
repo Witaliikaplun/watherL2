@@ -1,4 +1,4 @@
-package com.example.weather;
+package com.example.weather.list_elements;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.weather.R;
 
 import java.util.ArrayList;
 

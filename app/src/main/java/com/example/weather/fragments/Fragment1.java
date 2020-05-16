@@ -1,4 +1,4 @@
-package com.example.weather;
+package com.example.weather.fragments;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,9 +13,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.weather.MainActivity;
+import com.example.weather.R;
+import com.example.weather.Singleton;
+import com.example.weather.list_elements.WeatherAdapter;
+import com.example.weather.list_elements.WeatherSource;
+
 import java.util.ArrayList;
+
+
 
 
 /**
@@ -24,15 +34,19 @@ import java.util.ArrayList;
 public class Fragment1 extends Fragment {
     private Button btnSetting;
     private Fragment2 fragment2;
-    private TextView textPressure;
-    private TextView textSpeed;
     private TextView textCity;
     private TextView textTemp;
     private TextView textUnitPres;
     private TextView textUnitSpeed;
+    private TextView textUnitHumi;
+    private TextView textDescription;
+
     private Button btnGo;
     RecyclerView recyclerView;
     MainActivity act;
+    View view;
+
+
 
 
     public Fragment1() {
@@ -45,20 +59,24 @@ public class Fragment1 extends Fragment {
                              Bundle savedInstanceState) {
 
         fragment2 = new Fragment2();
-        View view = inflater.inflate(R.layout.fragment_1, null);
+        view = inflater.inflate(R.layout.fragment_1, null);
         getView();
-        textPressure = view.findViewById(R.id.textView10);
-        textSpeed = view.findViewById(R.id.textView9);
+
         btnSetting = view.findViewById(R.id.button2);
         btnGo = view.findViewById(R.id.buttonGo);
         textTemp = view.findViewById(R.id.textView3);
         textCity = view.findViewById(R.id.textView2);
-        textUnitPres = view.findViewById(R.id.presValue);
-        textUnitSpeed = view.findViewById(R.id.speedValue);
+
+        textUnitPres = view.findViewById(R.id.textUnitPress);
+        textUnitSpeed = view.findViewById(R.id.textUnitSpeed);
+        textUnitHumi = view.findViewById(R.id.textUnitHumi);
+        textDescription = view.findViewById(R.id.textDescript);
+
 
 
 
         viewTextPresSpeed();
+
         btnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,32 +119,32 @@ public class Fragment1 extends Fragment {
     public void onResume() {
         super.onResume();
         act =  (MainActivity) getContext();
-        act.getReq().init();
+        //act.getReq().init();
 
         textTemp.setText(act.getReq().getTemperature());
         textCity.setText(MainActivity.getSity());
         textUnitSpeed.setText(act.getReq().getWindSpeed());
         textUnitPres.setText(act.getReq().getPressure());
+        textUnitHumi.setText(act.getReq().getHumidity());
+        textDescription.setText(act.getReq().getDescription());
+
     }
 
     private void viewTextPresSpeed() {
+        LinearLayout layoutPress = view.findViewById(R.id.layautPress);
+        LinearLayout layoutHumi = view.findViewById(R.id.layautHumi);
+        LinearLayout layoutSpeed = view.findViewById(R.id.layautSpeed);
 
-        if(Singleton.getSingleton().getSwitchPress()){
-            textPressure.setVisibility(View.VISIBLE);
-            textUnitPres.setVisibility(View.VISIBLE);
-        }
-        else {
-            textPressure.setVisibility(View.INVISIBLE);
-            textUnitPres.setVisibility(View.INVISIBLE);
-        }
 
-        if(MainActivity.isSwitchSpeed()) {
-            textSpeed.setVisibility(View.VISIBLE);
-            textUnitSpeed.setVisibility(View.VISIBLE);
-        }
-        else {
-            textSpeed.setVisibility(View.INVISIBLE);
-            textUnitSpeed.setVisibility(View.INVISIBLE);
-        }
+        if(Singleton.getSingleton().getSwitchPress()) layoutPress.setVisibility(View.VISIBLE);
+        else layoutPress.setVisibility(View.GONE);
+
+        if(Singleton.getSingleton().getSwitchHumil()) layoutHumi.setVisibility(View.VISIBLE);
+        else layoutHumi.setVisibility(View.GONE);
+
+        if(Singleton.getSingleton().getSwitchSpeed()) layoutSpeed.setVisibility(View.VISIBLE);
+        else layoutSpeed.setVisibility(View.GONE);
+
+
     }
 }
