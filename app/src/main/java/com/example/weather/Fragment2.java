@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,11 +30,11 @@ public class Fragment2 extends Fragment {
     private Switch s2Press;
     private Switch s3Speed;
     private Switch sTheme;
+    Spinner spinner;
 
     public Fragment2() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,10 +48,12 @@ public class Fragment2 extends Fragment {
         sTheme = view.findViewById(R.id.switchTheme);
         TextView textCity = view.findViewById(R.id.textView6);
 
-        String[] data = getResources().getStringArray(R.array.arrayCity);
-        spinerMethod(textCity, data);
+        String[] arrayCity = getResources().getStringArray(R.array.arrayCity);
 
-        if(MainActivity.isSwitchPress()) s2Press.setChecked(true);
+        spinner = (Spinner) view.findViewById(R.id.spiner);
+        spinerMethod(textCity, arrayCity, spinner);
+
+        if(Singleton.getSingleton().getSwitchPress()) s2Press.setChecked(true);
         else s2Press.setChecked(false);
 
         if(MainActivity.isSwitchSpeed()) s3Speed.setChecked(true);
@@ -62,6 +65,7 @@ public class Fragment2 extends Fragment {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.fragment_container, fragment1);
                 //ft.addToBackStack("");
@@ -78,7 +82,7 @@ public class Fragment2 extends Fragment {
                             Snackbar.LENGTH_LONG).setAction(R.string.show_button, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            MainActivity.setSwitchPress(true);
+                            Singleton.getSingleton().setSwitchPress(true);
                             s2Press.setChecked(true);
                         }
                     }).show();
@@ -90,13 +94,11 @@ public class Fragment2 extends Fragment {
                             Snackbar.LENGTH_LONG).setAction(R.string.rem_pres, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            MainActivity.setSwitchPress(false);
+                            Singleton.getSingleton().setSwitchPress(false);
                             s2Press.setChecked(false);
                         }
                     }).show();
                 }
-
-
             }
         });
 
@@ -124,7 +126,6 @@ public class Fragment2 extends Fragment {
                             s3Speed.setChecked(false);
                         }
                     }).show();
-
                 }
             }
         });
@@ -135,27 +136,24 @@ public class Fragment2 extends Fragment {
                 if(sTheme.isChecked()) MainActivity.setSwitchTheme(true);
                 else MainActivity.setSwitchTheme(false);
                 getActivity().recreate();// пересоздать активити
-
-
-
             }
         });
-
-        // Inflate the layout for this fragment
         return view;
     }
 
-    private void spinerMethod(final TextView t6, final String[] data) {
+
+
+    private void spinerMethod(final TextView textCity, final String[] arrayCity, Spinner spinner) {
         //адаптер----------------------------------------------------
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, data);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, arrayCity);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        Spinner spinner = (Spinner) view.findViewById(R.id.spiner);
         spinner.setAdapter(adapter);
         // заголовок--------------------------------------------------
         spinner.setPrompt("Title");
         // выделяем элемент ------------------------------
         spinner.setSelection(MainActivity.getPosition());
+
         // устанавливаем обработчик нажатия---------------------------
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -164,17 +162,19 @@ public class Fragment2 extends Fragment {
                                        int position, long id) {
                 // показываем позиция нажатого элемента
                 switch (position){
-                    case 0: t6.setText(data[position]);
+                    case 0: textCity.setText(arrayCity[position]);
+                        MainActivity.setPosition(0);
                         break;
 
-                    case 1: t6.setText(data[position]);
+                    case 1: textCity.setText(arrayCity[position]);
+                        MainActivity.setPosition(1);
                         break;
 
-                    case 2: t6.setText(data[position]);
+                    case 2: textCity.setText(arrayCity[position]);
+                        MainActivity.setPosition(2);
                         break;
                 }
-                MainActivity.setSity(t6.getText().toString());
-                MainActivity.setPosition(position);
+                MainActivity.setSity(textCity.getText().toString());
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {

@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,13 +22,18 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment1 extends Fragment {
-    private Button btn2;
+    private Button btnSetting;
     private Fragment2 fragment2;
     private TextView textPressure;
     private TextView textSpeed;
     private TextView textCity;
+    private TextView textTemp;
+    private TextView textUnitPres;
+    private TextView textUnitSpeed;
     private Button btnGo;
     RecyclerView recyclerView;
+    MainActivity act;
+
 
     public Fragment1() {
         // Required empty public constructor
@@ -38,20 +44,22 @@ public class Fragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         fragment2 = new Fragment2();
         View view = inflater.inflate(R.layout.fragment_1, null);
-getView();
+        getView();
         textPressure = view.findViewById(R.id.textView10);
         textSpeed = view.findViewById(R.id.textView9);
-        btn2 = view.findViewById(R.id.button2);
+        btnSetting = view.findViewById(R.id.button2);
         btnGo = view.findViewById(R.id.buttonGo);
+        textTemp = view.findViewById(R.id.textView3);
         textCity = view.findViewById(R.id.textView2);
+        textUnitPres = view.findViewById(R.id.presValue);
+        textUnitSpeed = view.findViewById(R.id.speedValue);
 
-        textCity.setText(MainActivity.getSity());
+
 
         viewTextPresSpeed();
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -75,13 +83,13 @@ getView();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
 
         WeatherSource ws = new WeatherSource(getResources());
-        ArrayList weather = ws.build().getListWeather();
+        ArrayList listWeather = ws.build().getListWeather();
 
-        WeatherAdapter weatherAdapter = new WeatherAdapter(weather);
+        WeatherAdapter weatherAdapter = new WeatherAdapter(listWeather);
 
         recyclerView.setAdapter(weatherAdapter);
 
-       //декоратор-------------
+        //декоратор-------------
         DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL);
         itemDecoration.setDrawable(getActivity().getDrawable(R.drawable.separator));
         recyclerView.addItemDecoration(itemDecoration);
@@ -89,13 +97,36 @@ getView();
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        act =  (MainActivity) getContext();
+        act.getReq().init();
 
+        textTemp.setText(act.getReq().getTemperature());
+        textCity.setText(MainActivity.getSity());
+        textUnitSpeed.setText(act.getReq().getWindSpeed());
+        textUnitPres.setText(act.getReq().getPressure());
+    }
 
     private void viewTextPresSpeed() {
-        if(MainActivity.isSwitchPress()) textPressure.setVisibility(View.VISIBLE);
-        else textPressure.setVisibility(View.INVISIBLE);
 
-        if(MainActivity.isSwitchSpeed()) textSpeed.setVisibility(View.VISIBLE);
-        else textSpeed.setVisibility(View.INVISIBLE);
+        if(Singleton.getSingleton().getSwitchPress()){
+            textPressure.setVisibility(View.VISIBLE);
+            textUnitPres.setVisibility(View.VISIBLE);
+        }
+        else {
+            textPressure.setVisibility(View.INVISIBLE);
+            textUnitPres.setVisibility(View.INVISIBLE);
+        }
+
+        if(MainActivity.isSwitchSpeed()) {
+            textSpeed.setVisibility(View.VISIBLE);
+            textUnitSpeed.setVisibility(View.VISIBLE);
+        }
+        else {
+            textSpeed.setVisibility(View.INVISIBLE);
+            textUnitSpeed.setVisibility(View.INVISIBLE);
+        }
     }
 }

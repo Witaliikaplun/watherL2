@@ -8,12 +8,10 @@
     android:background="@android:color/white"
     tools:context=".MainActivity">
 
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:alpha="1.0"
         android:contentDescription="imagge"
         android:scaleType="center"
         android:visibility="visible"
@@ -37,6 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:addStatesFromChildren="false"
             android:orientation="horizontal">
 
             <TextView
@@ -44,21 +44,89 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-
                 android:text="XX"
                 android:textColor="#2F2E2E"
-                android:textSize="70sp" />
+                android:textSize="50sp" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_gravity="center"
                 android:text="@string/c"
                 android:textAlignment="center"
                 android:textColor="#2F2E2E"
-                android:textSize="70sp" />
+                android:textSize="30sp"
+                android:layout_marginTop="22dp"/>
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/image2"
+                app:srcCompat="@drawable/sunny_sunshine_weather_2778"
+                android:layout_marginLeft="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imageWind"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/image2"
+                        app:srcCompat="@drawable/wind" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="WWW"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imagePres"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/image2"
+                        app:srcCompat="@drawable/hygro" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="WWW"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imageHumi"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/image2"
+                        app:srcCompat="@drawable/press" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="WWW"/>
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -66,24 +134,12 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_gravity="center"
             android:shadowColor="#FFFFFF"
-
-
             android:text="@string/cityNname"
             android:textAlignment="center"
             android:textColor="#2F2E2E"
-            android:textSize="55sp" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="128dp"
-                android:layout_height="128dp"
-
-                android:layout_gravity="center"
-                android:contentDescription="@string/image2"
-                app:srcCompat="@drawable/sunny_sunshine_weather_2778" />
+            android:textSize="45sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -109,8 +165,16 @@
                 android:id="@+id/textView10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:text="@string/switch2"
+                android:textSize="30dp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/presValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:textSize="30dp"
                 android:visibility="invisible" />
         </LinearLayout>
@@ -124,8 +188,16 @@
                 android:id="@+id/textView9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:text="@string/switch1"
+                android:textSize="30dp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/speedValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:textSize="30dp"
                 android:visibility="invisible" />
         </LinearLayout>
@@ -142,7 +214,7 @@
                 android:layout_gravity="bottom"
                 android:text="@string/setBut"
                 android:layout_marginStart="16dp"
-                 />
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonGo"
@@ -151,18 +223,8 @@
                 android:layout_gravity="bottom"
                 android:layout_marginStart="16dp"
                 android:text="@string/brov" />
-
-
         </LinearLayout>
 
     </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragment1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteY="420dp">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
